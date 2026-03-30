@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="GV_yWO6T4_MDOnV9JbSgg63eCr2N4N9QEDanJ83bwtg" />
   <title>Vigilant Risk</title>
-  <meta name="description" content="Vigilant Risk — Close Protection, Investigations, Risk Analysis">
+  <meta name="description" content="Vigilant Risk — Close Protection, Risk Analysis, Investigations">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -22,8 +22,9 @@
     html,body{
       margin:0;
       min-height:100%;
+      /* Background stack: Wolf Watermark -> Lighting Glows -> Dark Gradients */
       background:
-        url('Wolf-Watermark.svg') no-repeat center 40% / 580px, 
+        url('WhiteWolfArtboard 1.svg') no-repeat center 42% / 600px, 
         radial-gradient(circle at 50% 55%, rgba(255,255,255,0.05), transparent 28%),
         radial-gradient(circle at 18% 12%, rgba(201,157,95,0.10), transparent 18%),
         radial-gradient(circle at 82% 88%, rgba(255,255,255,0.04), transparent 20%),
@@ -39,16 +40,6 @@
       align-items:center;
       justify-content:center;
       padding:20px;
-      position: relative;
-    }
-
-    .logo-top-right {
-      position: absolute;
-      top: 40px;
-      right: 40px;
-      width: 45px;
-      height: auto;
-      opacity: 0.8;
     }
 
     .wrap{
@@ -84,15 +75,16 @@
     }
 
     .summary{
-      max-width:800px; /* INCREASED to keep text on one line */
+      max-width:850px; /* Widened to keep "organisations" on the same line */
       margin:34px auto 0;
       font-size:0.95rem;
       line-height:1.75;
       color:rgba(244,238,232,0.9);
+      padding: 0 10px;
     }
 
     .cta{
-      margin-top:34px;
+      margin-top:40px;
       display:inline-flex;
       flex-direction:column;
       align-items:center;
@@ -128,25 +120,27 @@
       letter-spacing:0.02em;
     }
 
+    /* Tablet/Mobile Adjustments */
     @media (max-width: 700px){
       h1{ font-size: 2.8rem; letter-spacing: 0.15em; }
-      .services{ font-size: 0.55rem; letter-spacing: 0.2em; line-height: 1.6; }
-      .summary{ font-size: 0.9rem; margin-top: 24px; padding: 0 10px; max-width: 100%; }
+      .services{ font-size: 0.55rem; letter-spacing: 0.18em; line-height: 1.6; }
+      .summary{ font-size: 0.9rem; margin-top: 24px; max-width: 100%; }
       .cta { margin-top: 30px; width: 100%; max-width: 280px; }
-      .logo-top-right { top: 20px; right: 20px; width: 35px; }
-      html, body { background-size: 90%, auto, auto, auto, auto; }
+      html, body { 
+        /* Scales the wolf to be responsive on mobile screens */
+        background-size: 90% auto, auto, auto, auto, auto; 
+        background-position: center 35%, center, center, center, center;
+      }
     }
   </style>
 </head>
 <body>
-  <img src="Wolf-Solid.svg" alt="Vigilant Risk Logo" class="logo-top-right">
-
   <main class="wrap">
     <div class="eyebrow">Vigilant Risk Ltd</div>
     <h1>Vigilant Risk</h1>
-    <div class="services">Close Protection • Investigations • Risk Analysis</div>
+    <div class="services">Close Protection • Risk Analysis • Investigations</div>
     <div class="summary">
-      Specialist close protection, investigative and risk analysis services for private clients and organisations.<br>
+      Specialist close protection, risk analysis and investigative services for private clients and organisations.<br>
       Built on discretion, operational awareness and calm professional delivery.
     </div>
     
