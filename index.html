@@ -22,9 +22,9 @@
     html,body{
       margin:0;
       min-height:100%;
-      /* Background stack: Wolf Watermark -> Lighting Glows -> Dark Gradients */
+      /* Wolf background positioned slightly higher now that the top line is gone */
       background:
-        url('WhiteWolfArtboard 1.svg') no-repeat center 42% / 600px, 
+        url('WhiteWolfArtboard 1.svg') no-repeat center 38% / 600px, 
         radial-gradient(circle at 50% 55%, rgba(255,255,255,0.05), transparent 28%),
         radial-gradient(circle at 18% 12%, rgba(201,157,95,0.10), transparent 18%),
         radial-gradient(circle at 82% 88%, rgba(255,255,255,0.04), transparent 20%),
@@ -50,14 +50,6 @@
       z-index:1;
     }
 
-    .eyebrow{
-      margin:0 0 26px;
-      font-size:0.58rem;
-      letter-spacing:0.48em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-
     h1{
       margin:0;
       font-size:clamp(2.5rem, 7.2vw, 4.7rem);
@@ -75,7 +67,7 @@
     }
 
     .summary{
-      max-width:850px; /* Widened to keep "organisations" on the same line */
+      max-width:850px;
       margin:34px auto 0;
       font-size:0.95rem;
       line-height:1.75;
@@ -120,23 +112,20 @@
       letter-spacing:0.02em;
     }
 
-    /* Tablet/Mobile Adjustments */
     @media (max-width: 700px){
       h1{ font-size: 2.8rem; letter-spacing: 0.15em; }
       .services{ font-size: 0.55rem; letter-spacing: 0.18em; line-height: 1.6; }
       .summary{ font-size: 0.9rem; margin-top: 24px; max-width: 100%; }
       .cta { margin-top: 30px; width: 100%; max-width: 280px; }
       html, body { 
-        /* Scales the wolf to be responsive on mobile screens */
         background-size: 90% auto, auto, auto, auto, auto; 
-        background-position: center 35%, center, center, center, center;
+        background-position: center 32%, center, center, center, center;
       }
     }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <div class="eyebrow">Vigilant Risk Ltd</div>
     <h1>Vigilant Risk</h1>
     <div class="services">Close Protection • Risk Analysis • Investigations</div>
     <div class="summary">
