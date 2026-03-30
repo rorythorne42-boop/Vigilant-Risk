@@ -22,11 +22,11 @@
     html,body{
       margin:0;
       min-height:100%;
-      /* MODIFIED: background size of the wolf increased by 10% 
-         (from 600px to 660px) to match the mockup.
+      /* MODIFIED: Wolf watermark size significantly increased to 900px.
+         Position adjusted down to center 40% to keep it balanced.
       */
       background:
-        url('WhiteWolfArtboard 1.svg') no-repeat center 38% / 660px, 
+        url('WhiteWolfArtboard 1.svg') no-repeat center 40% / 900px, 
         radial-gradient(circle at 50% 55%, rgba(255,255,255,0.05), transparent 28%),
         radial-gradient(circle at 18% 12%, rgba(201,157,95,0.10), transparent 18%),
         radial-gradient(circle at 82% 88%, rgba(255,255,255,0.04), transparent 20%),
@@ -52,7 +52,7 @@
       z-index:1;
     }
 
-    /* Keep eyebrow line styling just in case, but it's not in the HTML */
+    /* Key line Removed from HTML. */
     .eyebrow{
       margin:0 0 26px;
       font-size:0.58rem;
@@ -123,17 +123,17 @@
       letter-spacing:0.02em;
     }
 
-    /* Mobile Rules */
     @media (max-width: 700px){
       h1{ font-size: 2.8rem; letter-spacing: 0.15em; }
       .services{ font-size: 0.55rem; letter-spacing: 0.18em; line-height: 1.6; }
       .summary{ font-size: 0.9rem; margin-top: 24px; max-width: 100%; }
       .cta { margin-top: 30px; width: 100%; max-width: 280px; }
       html, body { 
-        /* Keep mobile size larger too, or adjust for the smaller screen.
-           Here we use 95% which is slightly larger than the previous 90%.
+        /* Keep mobile size larger too. 
+           Mobile still needs smaller scaling than desktop, but 100% here 
+           fills the width perfectly on most phones.
         */
-        background-size: 95% auto, auto, auto, auto, auto; 
+        background-size: 100% auto, auto, auto, auto, auto; 
         background-position: center 32%, center, center, center, center;
       }
     }
