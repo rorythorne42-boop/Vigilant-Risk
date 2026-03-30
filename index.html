@@ -22,10 +22,12 @@
     html,body{
       margin:0;
       min-height:100%;
-      /* MODIFIED: Wolf watermark size significantly increased to 900px.
-         Position adjusted down to center 40% to keep it balanced.
+      /* UPDATED BACKGROUND: 
+         Added a 10% white radial glow (Layer 1) to 'backlight' the wolf 
+         so it is visible on mobile screens.
       */
       background:
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,0.10), transparent 45%), 
         url('WhiteWolfArtboard 1.svg') no-repeat center 40% / 900px, 
         radial-gradient(circle at 50% 55%, rgba(255,255,255,0.05), transparent 28%),
         radial-gradient(circle at 18% 12%, rgba(201,157,95,0.10), transparent 18%),
@@ -50,15 +52,6 @@
       text-align:center;
       position:relative;
       z-index:1;
-    }
-
-    /* Key line Removed from HTML. */
-    .eyebrow{
-      margin:0 0 26px;
-      font-size:0.58rem;
-      letter-spacing:0.48em;
-      text-transform:uppercase;
-      color:var(--muted);
     }
 
     h1{
@@ -129,12 +122,9 @@
       .summary{ font-size: 0.9rem; margin-top: 24px; max-width: 100%; }
       .cta { margin-top: 30px; width: 100%; max-width: 280px; }
       html, body { 
-        /* Keep mobile size larger too. 
-           Mobile still needs smaller scaling than desktop, but 100% here 
-           fills the width perfectly on most phones.
-        */
-        background-size: 100% auto, auto, auto, auto, auto; 
-        background-position: center 32%, center, center, center, center;
+        /* Backlight and Wolf visibility on mobile */
+        background-size: auto, 100% auto, auto, auto, auto, auto; 
+        background-position: center 35%, center 32%, center, center, center, center;
       }
     }
   </style>
@@ -161,3 +151,4 @@
     </div>
   </footer>
 </body>
+</html>
