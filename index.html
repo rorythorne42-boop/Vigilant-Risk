@@ -9,122 +9,135 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#050505;
-      --text:#f4eee8;
-      --muted:rgba(244,238,232,0.68);
-      --soft:rgba(244,238,232,0.16);
-      --soft-2:rgba(244,238,232,0.08);
+    :root {
+      --bg: #050505;
+      --text: #f4eee8;
+      --muted: rgba(244,238,232,0.68);
+      --soft-2: rgba(244,238,232,0.08);
     }
 
-    *{box-sizing:border-box}
+    * { box-sizing: border-box; }
 
-    html,body{
-      margin:0;
-      min-height:100%;
-      /* UPDATED BACKGROUND: 
-         Added a 10% white radial glow (Layer 1) to 'backlight' the wolf 
-         so it is visible on mobile screens.
-      */
-      background:
-        radial-gradient(circle at 50% 40%, rgba(255,255,255,0.10), transparent 45%), 
-        url('WhiteWolfArtboard 1.svg') no-repeat center 40% / 900px, 
-        radial-gradient(circle at 50% 55%, rgba(255,255,255,0.05), transparent 28%),
-        radial-gradient(circle at 18% 12%, rgba(201,157,95,0.10), transparent 18%),
-        radial-gradient(circle at 82% 88%, rgba(255,255,255,0.04), transparent 20%),
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      /* RESTORED: Sharp contrast wolf at 900px with original dark gradient */
+      background: 
+        url('WhiteWolfArtboard 1.svg') no-repeat center 40% / 900px,
         linear-gradient(180deg, #0a0a0a 0%, #050505 50%, #020202 100%);
-      color:var(--text);
-      font-family:'Montserrat', sans-serif;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
       background-attachment: fixed;
     }
 
-    body{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
     }
 
-    .wrap{
-      width:100%;
-      max-width:920px;
-      text-align:center;
-      position:relative;
-      z-index:1;
+    .wrap {
+      width: 100%;
+      max-width: 920px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding-bottom: 80px; /* Space for footer */
     }
 
-    h1{
-      margin:0;
-      font-size:clamp(2.5rem, 7.2vw, 4.7rem);
-      font-weight:500;
-      letter-spacing:0.26em;
-      text-transform:uppercase;
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 7.2vw, 4.7rem);
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
     }
 
-    .services{
-      margin-top:22px;
-      font-size:0.68rem;
-      letter-spacing:0.34em;
-      text-transform:uppercase;
-      color:var(--muted);
+    .services {
+      margin-top: 22px;
+      font-size: 0.68rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    .summary{
-      max-width:850px;
-      margin:34px auto 0;
-      font-size:0.95rem;
-      line-height:1.75;
-      color:rgba(244,238,232,0.9);
+    .summary {
+      max-width: 850px;
+      margin: 34px auto 0;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(244,238,232,0.9);
       padding: 0 10px;
     }
 
-    .cta{
-      margin-top:40px;
-      display:inline-flex;
-      flex-direction:column;
-      align-items:center;
-      gap:8px;
-      min-width:210px;
-      padding:14px 24px 15px;
-      border-radius:999px;
-      text-decoration:none;
-      color:var(--text);
-      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border:1px solid var(--soft-2);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 30px rgba(0,0,0,0.32);
-      transition:transform .2s ease, border-color .2s ease;
+    .cta {
+      margin-top: 40px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      min-width: 210px;
+      padding: 14px 24px 15px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--text);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--soft-2);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 30px rgba(0,0,0,0.32);
+      transition: transform .2s ease, border-color .2s ease;
       cursor: pointer;
     }
 
-    .cta:hover{
-      transform:translateY(-1px);
-      border-color:var(--soft);
-      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+    .cta:hover {
+      transform: translateY(-1px);
+      border-color: rgba(244,238,232,0.16);
     }
 
-    .cta-label{
-      font-size:0.56rem;
-      letter-spacing:0.34em;
-      text-transform:uppercase;
-      color:var(--muted);
+    .cta-label {
+      font-size: 0.56rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    .cta-email{
-      font-size:0.92rem;
-      font-weight:500;
-      letter-spacing:0.02em;
+    .cta-email {
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
 
-    @media (max-width: 700px){
-      h1{ font-size: 2.8rem; letter-spacing: 0.15em; }
-      .services{ font-size: 0.55rem; letter-spacing: 0.18em; line-height: 1.6; }
-      .summary{ font-size: 0.9rem; margin-top: 24px; max-width: 100%; }
+    /* FOOTER STYLING */
+    footer {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.52rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.6;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(244,238,232,0.2);
+      padding-bottom: 2px;
+    }
+
+    @media (max-width: 700px) {
+      h1 { font-size: 2.8rem; letter-spacing: 0.15em; }
+      .services { font-size: 0.55rem; letter-spacing: 0.18em; line-height: 1.6; }
+      .summary { font-size: 0.9rem; margin-top: 24px; max-width: 100%; }
       .cta { margin-top: 30px; width: 100%; max-width: 280px; }
       html, body { 
-        /* Backlight and Wolf visibility on mobile */
-        background-size: auto, 100% auto, auto, auto, auto, auto; 
-        background-position: center 35%, center 32%, center, center, center, center;
+        background-size: 100% auto, auto; 
+        background-position: center 32%, center;
       }
     }
   </style>
@@ -144,10 +157,13 @@
     </a>
   </main>
 
-  <footer style="position: absolute; bottom: 30px; width: 100%; text-align: center; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); opacity: 0.5;">
-    <div style="display: flex; justify-content: center; gap: 24px; align-items: center;">
-      <span>© 2026 Vigilant Risk Ltd</span>
-      <a href="privacy.html" style="color: inherit; text-decoration: none; border-bottom: 1px solid rgba(244,238,232,0.2); padding-bottom: 2px;">Privacy Policy</a>
+  <footer>
+    <div style="margin-bottom: 8px;">
+      © 2026 Vigilant Risk Ltd • <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div style="font-size: 0.46rem; opacity: 0.8; letter-spacing: 0.1em;">
+      Vigilant Risk Ltd is a company registered in England and Wales.<br>
+      Company No. [Your Number] • Registered Office: [Your Address]
     </div>
   </footer>
 </body>
