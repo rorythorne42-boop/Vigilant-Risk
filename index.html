@@ -3,284 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="GV_yWO6T4_MDOnV9JbSgg63eCr2N4N9QEDanJ83bwtg" />
   <title>Vigilant Risk</title>
-  <meta name="description" content="Vigilant Risk — Close Protection, Risk Analysis, Investigations">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-top: #070707;
-      --bg-bottom: #020202;
-      --text: #f3ede6;
-      --muted: rgba(214, 189, 148, 0.82);
-      --muted-soft: rgba(243, 237, 230, 0.70);
-      --muted-faint: rgba(243, 237, 230, 0.52);
-      --line: rgba(243, 237, 230, 0.12);
+      --bg: #070707;
+      --text: #f4eee8;
+      /* This muted color matches the gold/brown accents in your mockup */
+      --muted: #a89f91; 
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html, body {
+    body, html {
       margin: 0;
-      min-height: 100%;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 50% 34%, rgba(92, 73, 49, 0.08), transparent 30%),
-        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
-    }
-
-    body {
-      overflow: hidden;
-    }
-
-    .hero {
-      position: relative;
+      padding: 0;
       min-height: 100vh;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      isolation: isolate;
+      overflow-x: hidden;
     }
 
-    .wolf-wrap {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
+    /* THE WOLF: 
+       By placing it perfectly in the center and just lowering the opacity, 
+       it will never disappear on you again. 
+    */
+    .wolf-bg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1400px; /* Massive size to frame the text */
       z-index: 0;
       pointer-events: none;
+      opacity: 0.15; /* Keeps the lines visible but pushed to the background */
+      filter: sepia(0.8) saturate(1.5); /* Adds that slight warm/brass tone */
     }
 
-    .wolf {
-      position: absolute;
-      left: 50%;
-      top: 56%;
-      width: 1500px;
-      max-width: none;
-      transform: translate(-50%, -50%);
-      opacity: 0.34;
-      display: block;
-      filter: brightness(0) invert(1) sepia(10%) saturate(220%) hue-rotate(350deg) brightness(0.42) contrast(0.90);
-    }
-
-    .wrap {
+    /* CONTENT WRAPPER */
+    .content {
       position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 1180px;
+      z-index: 1;
       text-align: center;
-      padding: 20px 20px 160px;
-      transform: translateY(-18px);
+      max-width: 900px;
+      padding: 20px;
+      margin-top: 30px; /* Nudges the text block down to sit on the wolf's chest */
+    }
+
+    /* TYPOGRAPHY MATCHING YOUR MOCKUP */
+    .pre-title {
+      font-size: 0.55rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 22px;
+      opacity: 0.8;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-size: clamp(2.5rem, 6.5vw, 5.5rem);
       font-weight: 400;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.28em;
+      margin: 0 0 20px 0;
       text-transform: uppercase;
-      color: #f2ece4;
-      text-shadow: 0 3px 24px rgba(0,0,0,0.72);
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
     }
 
     .services {
-      margin-top: 24px;
-      font-size: 0.72rem;
-      letter-spacing: 0.34em;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--muted);
+      margin-bottom: 35px;
+      opacity: 0.9;
     }
 
-    .summary {
-      max-width: 980px;
-      margin: 34px auto 0;
-      font-size: 1rem;
-      line-height: 1.75;
-      color: rgba(243, 237, 230, 0.90);
-      text-shadow: 0 2px 12px rgba(0,0,0,0.48);
-      padding: 0 10px;
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(244, 238, 232, 0.85);
+      max-width: 750px;
+      margin: 0 auto 45px auto;
     }
 
-    .cta {
-      margin-top: 42px;
+    /* THE ENQUIRIES BUTTON */
+    .cta-btn {
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
-      min-width: 240px;
-      padding: 16px 30px;
-      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 40px;
+      border-radius: 50px;
       text-decoration: none;
       color: var(--text);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border: 1px solid var(--line);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.05),
-        0 12px 34px rgba(0,0,0,0.46);
-      backdrop-filter: blur(3px);
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
     }
 
-    .cta:hover {
+    .cta-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
-      border-color: rgba(243, 237, 230, 0.22);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
     }
 
     .cta-label {
-      font-size: 0.54rem;
-      letter-spacing: 0.34em;
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--muted-faint);
+      color: var(--muted);
+      margin-bottom: 6px;
     }
 
     .cta-email {
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       font-weight: 500;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.05em;
     }
 
-    footer {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 26px;
-      z-index: 2;
-      text-align: center;
-      font-size: 0.52rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted-soft);
-      opacity: 0.72;
-      line-height: 1.8;
-      padding: 0 20px;
-    }
-
-    footer a {
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(243, 237, 230, 0.18);
-    }
-
-    @media (max-width: 1100px) {
-      .wolf {
-        width: 1200px;
-        top: 55%;
-      }
-
-      h1 {
-        letter-spacing: 0.20em;
-      }
-
-      .summary {
-        max-width: 860px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .wolf {
-        width: 980px;
-        top: 54%;
-      }
-
-      .wrap {
-        transform: translateY(-8px);
-      }
-
-      h1 {
-        font-size: clamp(2.8rem, 8vw, 4.5rem);
-        letter-spacing: 0.16em;
-      }
-
-      .services {
-        font-size: 0.62rem;
-        letter-spacing: 0.24em;
-        line-height: 1.7;
-      }
-
-      .summary {
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .wolf {
-        width: 165vw;
-        top: 48%;
-        left: 50%;
-        opacity: 0.24;
-      }
-
-      .wrap {
-        padding: 24px 18px 170px;
-        transform: translateY(-4px);
-      }
-
-      h1 {
-        font-size: 2.7rem;
-        letter-spacing: 0.12em;
-      }
-
-      .services {
-        margin-top: 18px;
-        font-size: 0.54rem;
-        letter-spacing: 0.18em;
-        line-height: 1.8;
-      }
-
-      .summary {
-        margin-top: 24px;
-        font-size: 0.90rem;
-        line-height: 1.7;
-      }
-
-      .cta {
-        min-width: 220px;
-        padding: 15px 24px;
-      }
-
-      footer {
-        bottom: 18px;
-        font-size: 0.45rem;
-      }
+    /* MOBILE ADJUSTMENTS */
+    @media (max-width: 768px) {
+      .wolf-bg { width: 900px; } /* Scales down just enough for phones */
+      .content { margin-top: 0; padding-bottom: 50px; }
+      .services { line-height: 1.8; }
     }
   </style>
 </head>
 <body>
-  <section class="hero">
-  <div class="wolf-wrap">
-    <img src="WhiteWolfArtboard 1.svg" alt="" class="wolf">
-  </div>
 
-  <main class="wrap">
+  <img src="WhiteWolfArtboard 1.svg" alt="Vigilant Risk Wolf" class="wolf-bg">
+
+  <main class="content">
+    <div class="pre-title">Vigilant Risk Ltd</div>
+    
     <h1>Vigilant Risk</h1>
-
-    <div class="services">Close Protection • Risk Analysis • Investigations</div>
-
-    <div class="summary">
-      Specialist close protection, investigative and risk analysis services for private clients and organisations. Built on discretion, operational awareness and calm professional delivery.
+    
+    <div class="services">Close Protection • Investigations • Risk Analysis</div>
+    
+    <div class="description">
+      Specialist close protection, investigative and risk analysis services for private clients and organisations.<br>
+      Built on discretion, operational awareness and calm professional delivery.
     </div>
-
-    <a href="mailto:info@vigilant-risk.com" class="cta">
+    
+    <a href="mailto:info@vigilant-risk.com" class="cta-btn">
       <span class="cta-label">Enquiries</span>
       <span class="cta-email">info@vigilant-risk.com</span>
     </a>
   </main>
-</section>
 
-    <footer>
-      <div style="margin-bottom: 8px;">
-        © 2026 Vigilant Risk Ltd • <a href="privacy.html">Privacy Policy</a>
-      </div>
-      <div style="font-size: 0.44rem; opacity: 0.6; letter-spacing: 0.08em;">
-        Vigilant Risk Ltd is a company registered in England and Wales.<br>
-        Company No. 16069747 • Registered Office: RG19 8BE
-      </div>
-    </footer>
-  </section>
 </body>
 </html>
