@@ -41,24 +41,15 @@
 
     /* MAIN WOLF LAYER */
     body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-
-      /*
-        IMPORTANT:
-        Replace white-wolf.png with your final wolf file.
-        If your SVG is unreliable, export the wolf as a transparent PNG.
-      */
-      background-image: url("white-wolf.png");
-      background-repeat: no-repeat;
-      background-position: center 43%;
-      background-size: 720px auto;
-
-      opacity: 0.26;
-    }
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("bronze-wolf.png") no-repeat center 46%;
+  background-size: 820px auto;
+  opacity: 0.28;
+  z-index: 0;
+  pointer-events: none;
+}
 
     /* subtle dark veil to blend it in without hiding it */
     body::after {
